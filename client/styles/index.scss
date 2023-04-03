@@ -1,0 +1,153 @@
+@import './variables.scss';
+
+*{
+  box-sizing: border-box;
+}
+body {
+  position: relative;  
+  height: 100%;
+  margin: 0;
+  max-width:2000px;
+  overflow-x:hidden;
+  color:$light;
+  background-color: $main-light;
+  h1{
+    margin-top: 0;
+    font-size: 3.5em;
+  }
+  h2{
+    font-size: 2.5em;
+  }
+  h3{
+    margin-top: 0;
+    font-size: 2em;
+  }
+  p{
+    font-family:$body-font ;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+form{
+  font-family: $body-font;
+  textarea,
+  input{
+    padding: 10px;
+    margin-bottom: 10px;
+    border:none;
+    font-family: $body-font;
+  }
+  label{
+    margin-bottom: 10px;
+  }
+}
+
+button{
+  margin-top: 10px;
+  padding: 20px;
+  background-color: $variant;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  @include transition();
+  border:none;
+  &:hover{
+    background-color: darken($variant, 16%);
+    color: $light;
+    @include transition();
+  }
+
+}
+
+
+
+
+.main{
+  display: flex;
+  flex-direction: column-reverse;
+  margin:$sm 0;
+
+  @media (min-width:1024px){
+    flex-direction: row-reverse; 
+  }
+}
+
+.note-wrapper{
+  width: 100%;
+  div{
+    background-color:darken($main-light, 3%);
+    padding:20px;
+    form{
+      margin-top:100px;
+      display: flex;
+      flex-direction: column;
+      background-color:darken($main-light, 6%);
+      padding: 6%;
+    }
+    button{
+      padding:7px 20px;
+      font-size: 1em;
+      background-color: darken($variant, 16%);
+      color: $light;
+      &:hover{
+        background-color: darken($variant, 36%);
+      }
+      &.del_button{
+        background-color: #000;
+        &:hover{
+          background-color: $variant;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  @media (min-width:768px){
+    display: flex;
+    flex-wrap: wrap;
+    div{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 10px;
+      width: calc(50% - 20px);
+    }
+  }
+
+  @media (min-width:1024px){
+    width: 60%;
+  }
+
+  @media (min-width:1200px){
+    width: 66.666%;
+    div{
+      width: calc(33.333% - 20px);
+    }
+  }
+
+}
+
+.form-wrapper{
+  padding:$xs;
+  position: relative;
+  width: 100%;
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width:1024px){
+    width: 40%;
+    div{
+      position:fixed
+    }
+  }
+  @media (min-width:1200px){
+    width: 33.333%;
+  }
+}
+
